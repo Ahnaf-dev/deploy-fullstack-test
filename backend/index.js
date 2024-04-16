@@ -5,18 +5,12 @@ const port = 3000;
 
 app.use(express.json());
 
-app.use(cors(
-  {
-      origin: ["https://deploy-fullstack-test.vercel.app/"],
-      methods: ["POST", "GET"],
-      credentials: true
-  }
-));
-
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next()
+})
 
 app.get("/", (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-
   res.json("Hello World!");
 });
 
