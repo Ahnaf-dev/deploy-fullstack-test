@@ -15,6 +15,8 @@ app.use(cors(
 
 
 app.get("/", (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://deploy-fullstack-test.vercel.app/');
+
   res.json("Hello World!");
 });
 
